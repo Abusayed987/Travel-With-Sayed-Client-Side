@@ -4,19 +4,33 @@ const Banner = () => {
     return (
         <div>
             <div className="carousel w-full">
+                <div id="slide1" className="carousel-item relative w-full">
+                    <img src="https://i.ibb.co/yfCNB4s/tripcare360-1920x475-1.jpg" className="w-full rounded-sm" alt='' />
+                    <div
+                        className="absolute flex justify-between transform -translate-y-1/2  top-1/4 bg-white rounded-md ml-20  py-14 px-10 opacity-50 ">
+                        <h1
+                            className='text-2xl font-semibold  ml-20'
+                        >
+                            Traveling keeps you happy and <br />
+                            It helps keep your mind fresh !
 
-                <div id="item1" className="carousel-item w-full">
-                    <img src="https://quantum-rd.com/wp-content/uploads/2019/06/Using-Travel-Banners.jpg" className="w-full" alt='' />
+                        </h1>
+                    </div>
+                    <div
+                        className="absolute flex justify-between transform -translate-y-1/2  top-1/4  rounded-md ml-20  py-14 px-10  ">
+                        <h1
+                            className='text-2xl font-semibold  ml-20'
+                        >
+                            Traveling keeps you happy and <br />
+                            It helps keep your mind fresh !
+
+                        </h1>
+                    </div>
                 </div>
-            </div>
-            <div className="flex justify-center w-full py-2 gap-2">
-                <a href="#item1" className="btn btn-xs">1</a>
-                <a href="#item2" className="btn btn-xs">2</a>
-                <a href="#item3" className="btn btn-xs">3</a>
-                <a href="#item4" className="btn btn-xs">4</a>
             </div>
         </div>
     );
 };
-
+// https://quantum-rd.com/wp-content/uploads/2019/06/Using-Travel-Banners.jpg
+// https://i.ibb.co/yfCNB4s/tripcare360-1920x475-1.jpg
 export default Banner;

@@ -17,7 +17,7 @@ const Header = () => {
                             <li><Link>Contact</Link></li>
                         </ul>
                     </div>
-                    <Link className='flex items-center'>
+                    <a href='/' className='flex items-center'>
                         <img
                             className='w-20 mx-2'
                             src="https://media.tenor.com/n5i48L0PiyAAAAAi/airlines-travel.gif" alt=""
@@ -26,7 +26,7 @@ const Header = () => {
                             className="normal-case text-2xl text-cyan-800">
                             Travel With <b>S</b>ayed
                         </span>
-                    </Link>
+                    </a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg ">
