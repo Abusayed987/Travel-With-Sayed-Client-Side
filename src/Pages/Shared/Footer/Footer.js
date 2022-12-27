@@ -32,10 +32,10 @@ const Footer = () => {
                             <FaInstagram></FaInstagram>
                         </Link>
                     </div>
+                    <p className='mt-5 text-lg' >  Copyright 2022 © TravelWithSayed Bd.</p>
                 </div>
             </footer>
         </div>
     );
 };
-
 export default Footer;
