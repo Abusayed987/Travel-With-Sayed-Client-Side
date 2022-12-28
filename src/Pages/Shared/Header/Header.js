@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaCaretRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Header = () => {
@@ -33,10 +34,10 @@ const Header = () => {
                         <li><Link to='/'
                             className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
                         >Home</Link></li>
-                        <li><Link
+                        <li><Link to='/services'
                             className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
                         >Services</Link></li>
-                        <li><Link
+                        <li><Link to='/'
                             className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
                         >About</Link></li>
                         <li><Link
@@ -45,7 +46,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn btn-sm sm:btn-sm md:btn-md lg:btn-md  bg-cyan-800 text-white   hover:text-cyan-800 border-none hover:drop-shadow-2xl hover:bg-yellow-500 mr-3">Sign In</Link>
+                    <Link className="btn btn-sm sm:btn-sm md:btn-md lg:btn-md  bg-cyan-800 text-white   hover:text-cyan-800 border-none hover:drop-shadow-2xl hover:bg-yellow-500 mr-3">Sign In <FaCaretRight></FaCaretRight></Link>
                 </div>
             </div>
         </div>
