@@ -4,8 +4,8 @@ import { FaYoutube, FaInstagram, FaFacebook } from 'react-icons/fa'
 
 const Footer = () => {
     return (
-        <div className='relative min-h-screen'>
-            <footer className="footer absolute bottom-0 p-10 bg-cyan-800 text-neutral-content">
+        <div className=' mt-32'>
+            <footer className="footer  p-10 bg-cyan-800 text-neutral-content">
                 <div>
                     <span className="footer-title font-bold text-orange-50">Discover</span>
                     <Link to='/' className="link link-hover text-lg text-white">Home</Link>

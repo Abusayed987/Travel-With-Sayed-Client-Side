@@ -1,8 +1,8 @@
 [
     {
         "id": "63abc72461c1d598baea15fd",
-        "img": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/images/large/x-nwtub0d4y93DeZg_hBBkFaCQ-hySh6.jpg",
-        "price": 4817,
+        "img": "https://vivereazure.com/wp-content/uploads/2022/03/Bond-with-friends-and-family.jpg",
+        "price": "4,817",
         "days": 2,
         "name": "Cox's Bazar",
         "packageName": "Breathtaking Kayaking in Reju Khal",
@@ -12,7 +12,7 @@
     {
         "id": "63abc7248c84533be01d1ce8",
         "img": "https://s3.eu-central-1.amazonaws.com/other.projects.storage/travelverse/packages/packageGallery16463177883.jpg",
-        "price": 35290,
+        "price": "35,290",
         "days": 6,
         "name": "Dubai",
         "packageName": "Luxurious Dubai with Turkey and Cairo",
@@ -22,7 +22,7 @@
     {
         "id": "63abc7245e50481acfc3057d",
         "img": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/blogQBgXyWqgZbVqe-Yv1I25Uf3wO8fbg61K.jpg",
-        "price": 20350,
+        "price": "20,350",
         "days": 5,
         "name": "Bangkok",
         "packageName": "Thailand: The Land that Sings!",
@@ -32,7 +32,7 @@
     {
         "id": "63abc7246695add58944c25d",
         "img": "https://www.travelconnectionmaldives.com/images/properties/hideaway-beach-resort-spa-maldives-aerial-view.webp",
-        "price": 79200,
+        "price": "79,200",
         "days": 3,
         "name": "Maldives",
         "packageName": "Sun Island Resort and Spa: Catch the Taste of Maldives!",
@@ -42,7 +42,7 @@
     {
         "id": "63abc7247c16c99f5f09c3d5",
         "img": "https://tbbd-flight.s3.ap-southeast-1.amazonaws.com/images/medium/41QGkOJEO2DJs03A_w2Md67m11p9n43j.jpg",
-        "price": 8800,
+        "price": "8,800",
         "days": 3,
         "name": "Kathmandu",
         "packageName": "Kathmandu World Heritage Sites Tour",
@@ -52,7 +52,7 @@
     {
         "id": "63abc7247d4538f0109547aa",
         "img": "https://images3.bovpg.net/r/back/uk/sale/fcb8425f95e575.jpg",
-        "price": 18700,
+        "price": "18,700",
         "days": 3,
         "name": "Colombo",
         "packageName": "Serene Sri Lanka",
@@ -62,7 +62,7 @@
     {
         "id": "63abc724de52c432b85314c7",
         "img": "https://static.toiimg.com/photo/61241721.cms",
-        "price": 25377,
+        "price": "25,377",
         "days": 5,
         "name": "India",
         "packageName": "Golden Triangle: Delhi, Agra & Jaipur!",
@@ -72,7 +72,7 @@
     {
         "id": "63abc72440557953e5f62644",
         "img": "https://www.lep.co.uk/webimg/b25lY21zOmRkMmIxNzBkLTM3YTctNDMwZS1hYjE0LTJlOWUzMmRhOGY1OTpjZDEzNzQwYi05OWUzLTQ4NjctOTYzMC1lNjVhMGY4OGUwMDQ=.jpg?width=1200&enable=upscale",
-        "price": 13000,
+        "price": "13,000",
         "days": 3,
         "name": "Istanbul",
         "packageName": "Taste of Turkey",

@@ -24,7 +24,7 @@ const Header = () => {
                         />
                         <span
                             className="normal-case text-2xl text-cyan-800">
-                            Travel With <b>S</b>ayed
+                            <b className='text-3xl'>T</b>ravel With <b className='text-3xl'>S</b>ayed
                         </span>
                     </a>
                 </div>
@@ -45,7 +45,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn  bg-cyan-800 text-white border-none hover:drop-shadow-2xl hover:bg-cyan-900 mr-3">Sign In</Link>
+                    <Link className="btn btn-sm sm:btn-sm md:btn-md lg:btn-md  bg-cyan-800 text-white   hover:text-cyan-800 border-none hover:drop-shadow-2xl hover:bg-yellow-500 mr-3">Sign In</Link>
                 </div>
             </div>
         </div>
