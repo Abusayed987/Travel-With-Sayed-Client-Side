@@ -13,7 +13,6 @@ const Banner = () => {
                         >
                             Traveling keeps you happy and <br />
                             It helps keep your mind fresh !
-
                         </h1>
                     </div>
                     <div
@@ -31,6 +30,4 @@ const Banner = () => {
         </div>
     );
 };
-// https://quantum-rd.com/wp-content/uploads/2019/06/Using-Travel-Banners.jpg
-// https://i.ibb.co/yfCNB4s/tripcare360-1920x475-1.jpg
 export default Banner;
