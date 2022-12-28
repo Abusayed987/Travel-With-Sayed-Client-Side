@@ -13,7 +13,7 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to='/'>Home</Link></li>
-                            <li><Link>Services</Link></li>
+                            <li><Link to='/services'>Services</Link></li>
                             <li><Link>About</Link></li>
                             <li><Link>Contact</Link></li>
                         </ul>
@@ -46,7 +46,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn btn-sm sm:btn-sm md:btn-md lg:btn-md  bg-cyan-800 text-white   hover:text-cyan-800 border-none hover:drop-shadow-2xl hover:bg-yellow-500 mr-3">Sign In <FaCaretRight></FaCaretRight></Link>
+                    <Link to='/login' className="btn btn-sm sm:btn-sm md:btn-md lg:btn-md  bg-cyan-800 text-white   hover:text-cyan-800 border-none hover:drop-shadow-2xl hover:bg-yellow-500 mr-3">Sign In <FaCaretRight></FaCaretRight></Link>
                 </div>
             </div>
         </div>
