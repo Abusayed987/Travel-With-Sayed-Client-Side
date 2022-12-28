@@ -12,8 +12,9 @@ const Login = () => {
     return (
         <div>
             <div className=" hero-content mt-20 ">
-                <form onSubmit={handleLogin} className="card flex-shrink-0 w-1/2 max-w-lg shadow-2xl bg-base-100">
-                    <div className=" p-7">
+                <form onSubmit={handleLogin}
+                    className="card flex-shrink-0 lg:w-1/2 md:w-1/2 sm:w-full max-w-lg shadow-2xl bg-base-100">
+                    <div className=" card-body">
                         <div className="form-control">
                             <div className=' w-full mb-5  h-1 rounded-sm  bg-cyan-700'></div>
                             <div
@@ -39,14 +40,14 @@ const Login = () => {
                                 <span className="label-text">Password</span>
                             </label>
                             <input type="password" name='password' placeholder="password" className="input input-bordered" required />
-                            <label className="label">
+                            <label className=" mt-2 text-right">
                                 <Link className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
                         </div>
-                        <div className="form-control mt-6">
+                        <div className="form-control mt-6 mb-4">
                             <button type='submit' className="btn btn-primary bg-cyan-800 text-white   hover:bg-cyan-800 border-none hover:drop-shadow-2xl ">Login</button>
                         </div>
-                        <label className="text-center">
+                        <label className=" text-center">
                             <span className="label-text-alt ">Don't have an Account?
                                 <Link to='/signup' className='font-bold link link-hover text-sm	'> Sign Up</Link>
                             </span>
