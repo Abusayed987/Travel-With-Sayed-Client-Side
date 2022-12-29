@@ -1,14 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+
+
+const googleProvider = new GoogleAuthProvider()
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
+
+    const {
+        logInWithEmailAndPass,
+        setLoading,
+        setUser,
+        googleLogin,
+    } = useContext(AuthContext)
+
+
     const handleLogin = e => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+
+        logInWithEmailAndPass(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                form.reset();
+                navigate(from, { replace: true })
+            })
+            .catch((e) => {
+                // toast.error(e.message)
+                console.error('error: ', e)
+            })
+            .finally(() => {
+                setLoading(false)
+            })
     }
+    const handleGoogleLogin = () => {
+        googleLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                // console.log(user);
+                // setUser(user)
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.error(error))
+    }
+
     return (
         <div>
             <div className=" hero-content mt-20 ">
@@ -17,7 +61,7 @@ const Login = () => {
                     <div className=" card-body">
                         <div className="form-control">
                             <div className=' w-full mb-5  h-1 rounded-sm  bg-cyan-700'></div>
-                            <div
+                            <div onClick={handleGoogleLogin}
                                 className="btn no-animation text-gray-400  bg-white hover:bg-white hover:drop-shadow-lg
                                 border-gray-400 rounded-md sm:h-6">
                                 <img

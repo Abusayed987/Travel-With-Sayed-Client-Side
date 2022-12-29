@@ -1,8 +1,15 @@
-import React from 'react';
-import { FaCaretRight } from 'react-icons/fa';
+import React, { useContext } from 'react';
+import { FaCaretRight, FaSignOutAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Header = () => {
+    const { user, logout } = useContext(AuthContext);
+
+    const signOut = () => {
+        logout()
+    }
+
     return (
         <div>
             <div className="navbar bg-zinc-100">
@@ -14,11 +21,20 @@ const Header = () => {
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to='/'>Home</Link></li>
                             <li><Link to='/services'>Services</Link></li>
-                            <li><Link>About</Link></li>
-                            <li><Link>Contact</Link></li>
+                            {user?.uid &&
+                                <>
+                                    <li><Link to='/'
+                                        className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
+                                    >My Reviews</Link></li>
+                                    <li><Link
+                                        className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
+                                    >Add Service</Link></li>
+                                </>
+                            }
+                            <li><Link to='/'>Blog</Link></li>
                         </ul>
                     </div>
-                    <a href='/' className='flex items-center'>
+                    <Link to='/' className='flex items-center'>
                         <img
                             className='w-20 mx-2'
                             src="https://media.tenor.com/n5i48L0PiyAAAAAi/airlines-travel.gif" alt=""
@@ -27,7 +43,7 @@ const Header = () => {
                             className="normal-case text-2xl text-cyan-800">
                             <b className='text-3xl'>T</b>ravel With <b className='text-3xl'>S</b>ayed
                         </span>
-                    </a>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 text-lg ">
@@ -37,16 +53,29 @@ const Header = () => {
                         <li><Link to='/services'
                             className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
                         >Services</Link></li>
-                        <li><Link to='/'
-                            className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
-                        >About</Link></li>
-                        <li><Link
-                            className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
-                        >Contact</Link></li>
+                        {user?.uid &&
+                            <>
+                                <li><Link to='/'
+                                    className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
+                                >My Reviews</Link></li>
+                                <li><Link
+                                    className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
+                                >Add Service</Link></li>
+                            </>
+                        }
+                        <li><Link to='/' className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'>Blog</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login' className="btn btn-sm sm:btn-sm md:btn-md lg:btn-md  bg-cyan-800 text-white   hover:text-cyan-800 border-none hover:drop-shadow-2xl hover:bg-yellow-500 mr-3">Sign In <FaCaretRight></FaCaretRight></Link>
+                    {user?.uid ?
+                        <>
+                            <button onClick={signOut} className="btn btn-sm  md:btn-md lg:btn-md   text-white hover:text-cyan-800 border-none hover:drop-shadow-2xl hover:bg-yellow-500 mr-3">Sign Out <FaSignOutAlt></FaSignOutAlt></button>
+                        </>
+                        :
+                        <>
+                            <Link to='/login' className="btn btn-sm sm:btn-sm md:btn-md lg:btn-md  bg-cyan-800 text-white   hover:text-cyan-800 border-none hover:drop-shadow-2xl hover:bg-yellow-500 mr-3">Sign In <FaCaretRight></FaCaretRight></Link>
+                        </>
+                    }
                 </div>
             </div>
         </div>
