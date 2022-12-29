@@ -13,7 +13,7 @@ const Services = () => {
     }, [])
     return (
         <div>
-            <div className='mt-20'>
+            <div className=' md:mt-20 lg:mt-20'>
                 <h1
                     className='text-4xl my-8 font-bold text-cyan-700 text-center'
                 >My <span className='text-cyan-500 text-5xl'>S</span>ervices
@@ -21,7 +21,9 @@ const Services = () => {
             </div>
 
             <div>
-                <img className='w-4/6 my-20 rounded-xl mx-auto' src="https://ik.imagekit.io/w13m3d3rhif/web/campaign/season-of-travel/season-of-travel-lg.png?tr=f-auto,h-280,pr-true" alt="" />
+                <img
+                    className=' md:w-4/6 lg:w-4/6 md:my-20 lg:my-20 rounded-xl mx-auto '
+                    src="https://ik.imagekit.io/w13m3d3rhif/web/campaign/season-of-travel/season-of-travel-lg.png?tr=f-auto,h-280,pr-true" alt="" />
             </div>
             <div className='grid gap-4 place-items-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-20'>
                 {
