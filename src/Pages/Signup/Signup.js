@@ -1,16 +1,38 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+
 
 const Signup = () => {
+    const { createUser } = useContext(AuthContext);
+
     const handleSignup = e => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const confirm = form.password.value;
-        console.log(name, email, password, confirm);
+        const confirmPass = form.confirmPass.value;
+        console.log(name, email, password, confirmPass);
+        if (password !== confirmPass) {
+            return alert('password did not match')
+        }
+
+        createUser(email, password)
+            .then(result => {
+                const user = result.user
+                // form.reset()
+                console.log(user);
+            })
+            .catch(err => {
+                const errorMessage = err.message;
+                alert(errorMessage)
+                console.error(err)
+            })
+
     }
+
+
     return (
         <div>
             <div className="hero-content mt-8">
@@ -35,7 +57,7 @@ const Signup = () => {
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-                            <input type="text" name='name' placeholder="Your Name" className="input input-bordered" required />
+                            <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -53,10 +75,12 @@ const Signup = () => {
                             <label className="label">
                                 <span className="label-text">Confirm Password</span>
                             </label>
-                            <input type="password" name='confirm' placeholder="Confirm Password" className="input input-bordered" required />
+                            <input type="password" name='confirmPass' placeholder="Confirm Password" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6 mb-4">
-                            <button type='submit' className="btn btn-primary bg-cyan-800 text-white   hover:bg-cyan-800 border-none hover:drop-shadow-2xl ">Sign up</button>
+                            <button
+                                type='submit'
+                                className="btn btn-primary bg-cyan-800 text-white   hover:bg-cyan-800 border-none hover:drop-shadow-2xl ">Sign up</button>
                         </div>
                         <label className="text-center">
                             <span className="label-text-alt ">Already have an Account?
