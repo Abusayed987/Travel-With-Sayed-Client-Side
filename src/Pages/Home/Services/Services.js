@@ -18,6 +18,7 @@ const Services = () => {
                     className='text-4xl my-8 font-bold text-cyan-700 text-center'
                 >My <span className='text-cyan-500 text-5xl'>S</span>ervices
                 </h1>
+                <div className=' mx-auto w-3/12 mb-5  h-1 rounded-sm  bg-cyan-700'></div>
             </div>
 
             <div>

@@ -6,6 +6,7 @@ const WhatIdo = () => {
             <h2 className='text-center mt-24 text-5xl font-semibold   '>What
                 <span className='text-cyan-600 text-6xl'> i </span>
                 Do ?</h2>
+            <div className=' mx-auto w-3/12 mt-5  h-1 rounded-sm  bg-cyan-700'></div>
             <div
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 place-items-center lg:w-5/6 md:w-5/6 sm:w-full mx-auto mt-24"
             >
