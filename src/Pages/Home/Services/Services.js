@@ -23,7 +23,7 @@ const Services = () => {
 
             <div>
                 <img
-                    className=' md:w-4/6 lg:w-4/6 md:my-20 lg:my-20 rounded-xl mx-auto '
+                    className=' w-11/12 md:w-4/6 lg:w-4/6 md:my-20 lg:my-20 rounded-xl mx-auto '
                     src="https://ik.imagekit.io/w13m3d3rhif/web/campaign/season-of-travel/season-of-travel-lg.png?tr=f-auto,h-280,pr-true" alt="" />
             </div>
             <div className='grid gap-4 place-items-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-20'>
