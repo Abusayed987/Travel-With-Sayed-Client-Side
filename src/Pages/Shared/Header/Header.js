@@ -69,7 +69,7 @@ const Header = () => {
                 <div className="navbar-end">
                     {user?.uid ?
                         <>
-                            <button onClick={signOut} className="btn btn-sm  md:btn-md lg:btn-md   text-white hover:text-cyan-800 border-none hover:drop-shadow-2xl hover:bg-yellow-500 mr-3">Sign Out <FaSignOutAlt></FaSignOutAlt></button>
+                            <button onClick={signOut} className="btn btn-sm  md:btn-md lg:btn-md   text-white hover:text-cyan-800 border-none hover:drop-shadow-2xl hover:bg-yellow-500 mr-3"><FaSignOutAlt></FaSignOutAlt> <span className=' ml-1'>log out </span></button>
                         </>
                         :
                         <>

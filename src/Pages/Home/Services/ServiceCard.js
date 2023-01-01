@@ -6,7 +6,8 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 
 const ServiceCard = ({ service }) => {
-    const { img, price, name, discription } = service;
+    const { _id, img, price, name, discription } = service;
+
     return (
         <div>
             <div className="card card-compact w-80 bg-base-100 shadow-xl mb-2">
@@ -22,7 +23,7 @@ const ServiceCard = ({ service }) => {
 
                     <p className='text-lg text-cyan-900'>{discription.slice(0, 97)}...</p>
                     <div className="card-actions justify-start my-2">
-                        <Link className="btn btn-sm btn-outline rounded border">Details</Link>
+                        <Link to={`/services/${_id}`} className="btn btn-sm btn-outline rounded border">Details</Link>
                     </div>
                 </div>
             </div>
