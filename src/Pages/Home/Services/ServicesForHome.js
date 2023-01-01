@@ -1,14 +1,13 @@
-import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
 import ServiceCard from './ServiceCard';
-const Services = () => {
-    const [services, setServices] = useState([])
+const ServicesForHome = () => {
+    const [servicesForHome, setServicesForHome] = useState([])
     useEffect(() => {
-        fetch('http://localhost:4000/services')
+        fetch('http://localhost:4000/servicesForHome')
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
-                setServices(data)
+                setServicesForHome(data)
             })
     }, [])
     return (
@@ -26,18 +25,16 @@ const Services = () => {
                     className=' w-11/12 md:w-4/6 lg:w-4/6 md:my-20 lg:my-20 rounded-xl mx-auto '
                     src="https://ik.imagekit.io/w13m3d3rhif/web/campaign/season-of-travel/season-of-travel-lg.png?tr=f-auto,h-280,pr-true" alt="" />
             </div>
-
             <div className='grid gap-4 place-items-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-20'>
                 {
-                    services.map(service => <ServiceCard
+                    servicesForHome.map(service => <ServiceCard
                         key={service._id}
                         service={service}
                     ></ServiceCard>)
                 }
             </div>
-
         </div>
     );
 };
 
-export default Services;
+export default ServicesForHome;

@@ -70,7 +70,7 @@ const Login = () => {
                                 <span>Login with Google</span>
                             </div>
                         </div>
-                        <div className="divider w-96 mx-auto">OR</div>
+                        <div className="divider">OR</div>
                         <p className='text-2xl font-bold'>Sign In</p>
                         <div className="form-control">
                             <label className="label">

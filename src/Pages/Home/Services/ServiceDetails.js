@@ -14,7 +14,15 @@ const ServiceDetails = () => {
         itinerary,
         price,
     } = service;
-    console.log(service);
+    // console.log(service);
+    const handleReview = (e) => {
+        e.preventDefault()
+        const form = e.target;
+        const reviewerName = form.reviewerName.value;
+        const reviewerPhoto = form.reviewerPhoto.value;
+        const reviewerText = form.reviewerText.value;
+        console.log(reviewerName, reviewerPhoto, reviewerText);
+    }
 
     return (
         <div>
@@ -26,13 +34,12 @@ const ServiceDetails = () => {
                     <div className="hero lg:w-5/6 md:w-5/6 sm:w-full mx-auto md:mt-24 lg:mt-24">
                         <div className=" flex justify-center flex-col-reverse  lg:flex-row-reverse md:flex-row-reverse p-5 md:p-0 lg:p-0 ">
                             <div className=" lg:w-1/2 md:w-1/2 sm:w-4/6 shadow-sm border  md:block lg:block mt-8">
-                                <h2 className='font-semibold text-xl ml-2 p-2'>Itinerary:</h2>
+                                <h2 className='font-semibold text-xl ml-2 p-2'>Details:</h2>
                                 <h3 className=' text-lg p-5'>{discription}</h3>
                             </div>
                             <div className=' lg:w-1/2 md:w-1/2 sm:w-4/6'>
                                 <div
                                     className=' hidden md:block lg:block w-7  h-1 rounded-sm mb-5 bg-yellow-500'>
-
                                 </div>
                                 <div>
                                     <h2 className=' mb-4 font-semibold lg:text-5xl md:text-4xl text-2xl'>
@@ -45,7 +52,8 @@ const ServiceDetails = () => {
                                     <FaCalendarDay className=' mr-2'></FaCalendarDay>
                                     {days} Days
                                 </p>
-
+                                <p className=' lg:w-96 md:w-72 w mt-5'>
+                                    <span className='text-lg p-5 font-semibold'>Itinerary:</span> ${itinerary}</p>
                             </div>
                         </div>
                     </div>
@@ -53,9 +61,36 @@ const ServiceDetails = () => {
             </div>
 
             {/*  Review section */}
+            <div className=' md:mt-20 lg:mt-20'>
+                <h1
+                    className='text-xl md:text-3xl my-8 font-bold text-cyan-700 text-center'
+                ><span className='text-cyan-500 text-4xl'>R</span>eviews
+                </h1>
+                <div className=' mx-auto w-3/12 mb-5  h-1 rounded-sm  bg-cyan-700'></div>
+            </div>
             <div>
-
-
+                <form onSubmit={handleReview}
+                    className="card flex-shrink-0 lg:w-1/2 md:w-1/2 sm:w-full max-w-lg shadow-2xl bg-base-100 mx-auto">
+                    <div className=" card-body">
+                        <div className="form-control">
+                            <div className=' w-full mb-5  h-1 rounded-sm  bg-cyan-700'></div>
+                        </div>
+                        <p className='text-2xl font-bold'>Write Your Review</p>
+                        <div className="form-control">
+                            <input type="text" name='reviewerName' placeholder="Your Name" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <input type="text" name='reviewerPhoto' placeholder="Your Photo URL" className="input input-bordered" required />
+                        </div>
+                        <div className="form-control">
+                            <textarea type="text" name='reviewerText'
+                                className="textarea textarea-bordered h-24 text-lg" placeholder="Write Your Experience" required ></textarea>
+                        </div>
+                        <div className="form-control mt-6 mb-4">
+                            <button type='submit' className="btn btn-primary bg-cyan-800 text-white   hover:bg-cyan-800 border-none hover:drop-shadow-2xl ">Submit Your Experience</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     );
