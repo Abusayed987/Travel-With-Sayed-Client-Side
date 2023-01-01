@@ -19,7 +19,8 @@ const ServiceCard = ({ service }) => {
                     </PhotoProvider>
                 </figure>
                 <div className="card-body">
-                    <h2 className="card-title text-2xl">{name} - <span className='text-blue-600 font-semibold font-mono text-xl'>{price}Tk</span></h2>
+                    <h2 className="card-title text-2xl">{name} - <span className='text-blue-600 font-semibold font-mono text-xl'>{price}Tk</span>
+                    </h2>
 
                     <p className='text-lg text-cyan-900'>{discription.slice(0, 97)}...</p>
                     <div className="card-actions justify-start my-2">
