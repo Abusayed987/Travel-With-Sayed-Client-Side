@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaCalendarDay, FaMapMarkerAlt } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const ServiceDetails = () => {
-    const service = useLoaderData()
+    const service = useLoaderData();
+    const { user } = useContext(AuthContext)
+    console.log(user);
     const {
         _id,
         name,
@@ -21,7 +24,38 @@ const ServiceDetails = () => {
         const reviewerName = form.reviewerName.value;
         const reviewerPhoto = form.reviewerPhoto.value;
         const reviewerText = form.reviewerText.value;
-        console.log(reviewerName, reviewerPhoto, reviewerText);
+        // console.log(reviewerName, reviewerPhoto, reviewerText);
+
+        // ai same vabe (add services ) korte hobe 
+        const review = {
+            service: _id,
+            serviceName: name,
+            price,
+            email: user.email,
+            reviewerName: user?.displayName ? user?.displayName : reviewerName,
+            reviewerPhoto,
+            reviewerText
+        }
+
+        fetch('http://localhost:4000/reviews', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(review)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.acknowledged) {
+                    form.reset()
+                    // ai khane akta toast dite hobe 
+                    alert('Thank you for share your Experience')
+                }
+            })
+            .catch(err => console.error(err))
+
+
     }
 
     return (
@@ -69,28 +103,45 @@ const ServiceDetails = () => {
                 <div className=' mx-auto w-3/12 mb-5  h-1 rounded-sm  bg-cyan-700'></div>
             </div>
             <div>
-                <form onSubmit={handleReview}
-                    className="card flex-shrink-0 lg:w-1/2 md:w-1/2 sm:w-full max-w-lg shadow-2xl bg-base-100 mx-auto">
-                    <div className=" card-body">
-                        <div className="form-control">
-                            <div className=' w-full mb-5  h-1 rounded-sm  bg-cyan-700'></div>
+                {user?.uid ?
+                    <form onSubmit={handleReview}
+                        className="card flex-shrink-0 lg:w-1/2 md:w-1/2 sm:w-full max-w-lg shadow-2xl bg-base-100 mx-auto">
+                        <div className=" card-body">
+                            <div className="form-control">
+                                <div className=' w-full mb-5  h-1 rounded-sm  bg-cyan-700'></div>
+                            </div>
+                            <p className='text-2xl font-bold'>Write Your Review</p>
+                            <div className="form-control">
+                                <label className="input-group input-group-lg">
+                                    <span>Name</span>
+                                    <input type="text" name='reviewerName'
+                                        defaultValue={user?.displayName ? user?.displayName : 'Unknown'}
+                                        placeholder="Your Name" className="input input-bordered w-full" required />
+                                </label>
+                            </div>
+                            <div className="form-control">
+                                <label className="input-group input-group-lg ">
+                                    <span>Photo</span>
+                                    <input type="text" name='reviewerPhoto' placeholder="Your Photo URL" className="input input-bordered w-full" required />
+                                </label>
+                            </div>
+                            <div className="form-control">
+                                <textarea type="text" name='reviewerText'
+                                    className="textarea textarea-bordered h-24 text-lg" placeholder="Write Your Experience" required ></textarea>
+                            </div>
+                            <div className="form-control mt-6 mb-4">
+                                <button type='submit' className="btn btn-primary bg-cyan-800 text-white   hover:bg-cyan-800 border-none hover:drop-shadow-2xl ">Submit Your Experience</button>
+                            </div>
                         </div>
-                        <p className='text-2xl font-bold'>Write Your Review</p>
-                        <div className="form-control">
-                            <input type="text" name='reviewerName' placeholder="Your Name" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <input type="text" name='reviewerPhoto' placeholder="Your Photo URL" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control">
-                            <textarea type="text" name='reviewerText'
-                                className="textarea textarea-bordered h-24 text-lg" placeholder="Write Your Experience" required ></textarea>
-                        </div>
-                        <div className="form-control mt-6 mb-4">
-                            <button type='submit' className="btn btn-primary bg-cyan-800 text-white   hover:bg-cyan-800 border-none hover:drop-shadow-2xl ">Submit Your Experience</button>
+                    </form>
+                    :
+                    <div className="alert alert-warning shadow-lg w-10/12 mx-auto ">
+                        <div className='text-xl'>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6 " fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                            <span className=' ml-3 '>Please login fast to add a review !</span>
                         </div>
                     </div>
-                </form>
+                }
             </div>
         </div>
     );
