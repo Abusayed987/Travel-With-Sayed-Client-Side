@@ -55,7 +55,7 @@ const Header = () => {
                         >Services</Link></li>
                         {user?.uid &&
                             <>
-                                <li><Link to='/'
+                                <li><Link to='/myReview'
                                     className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
                                 >My Reviews</Link></li>
                                 <li><Link

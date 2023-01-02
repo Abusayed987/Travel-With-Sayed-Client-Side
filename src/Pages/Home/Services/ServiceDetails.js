@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { FaCalendarDay, FaMapMarkerAlt } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import AllReview from '../Reviews/AllReview/AllReview';
 
 const ServiceDetails = () => {
     const service = useLoaderData();
     const { user } = useContext(AuthContext)
-    console.log(user);
     const {
         _id,
         name,
@@ -17,7 +17,7 @@ const ServiceDetails = () => {
         itinerary,
         price,
     } = service;
-    // console.log(service);
+    console.log(service);
     const handleReview = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -29,6 +29,7 @@ const ServiceDetails = () => {
         // ai same vabe (add services ) korte hobe 
         const review = {
             service: _id,
+            serviceImg: img,
             serviceName: name,
             price,
             email: user.email,
@@ -102,6 +103,7 @@ const ServiceDetails = () => {
                 </h1>
                 <div className=' mx-auto w-3/12 mb-5  h-1 rounded-sm  bg-cyan-700'></div>
             </div>
+            <AllReview></AllReview>
             <div>
                 {user?.uid ?
                     <form onSubmit={handleReview}
