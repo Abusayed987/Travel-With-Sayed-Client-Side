@@ -1,27 +1,20 @@
 import React from 'react';
 
-const MyReviewRow = ({ review }) => {
+const AllReviewRow = ({ allReview }) => {
     const { reviewerName,
         reviewerText,
         serviceName,
-    } = review;
-
-
+        price
+        ,
+    } = allReview;
     return (
         <tr>
-            <th>
-                <label>
-                    <button
-                        // onClick={() => handleDelete(_id)}
-                        className="btn btn-ghost btn-xs">X</button>
-                </label>
-            </th>
             <td>
                 <div className="flex items-center space-x-3">
                     <div className="avatar">
                         <div className="rounded w-24 h-24">
-                            {review?.serviceImg &&
-                                <img src={review?.serviceImg} alt="ServiceImg" />
+                            {allReview?.serviceImg &&
+                                <img src={allReview?.serviceImg} alt="ServiceImg" />
                             }
                         </div>
                     </div>
@@ -29,13 +22,13 @@ const MyReviewRow = ({ review }) => {
                         <div className="font-bold">
                             {serviceName}
                         </div>
-
+                        <span className='text-sm opacity-50'>BDT {price}</span>
                     </div>
                 </div>
             </td>
             <td className='text-sm '>
                 <div className='flex items-center'>
-                    <img src={review?.reviewerPhoto}
+                    <img src={allReview?.reviewerPhoto}
                         className='  w-7 '
                         alt="ServiceImg" />
                     <span className='text-sm opacity-50 ml-2'>{reviewerName}</span>
@@ -48,4 +41,4 @@ const MyReviewRow = ({ review }) => {
     );
 };
 
-export default MyReviewRow;
+export default AllReviewRow;

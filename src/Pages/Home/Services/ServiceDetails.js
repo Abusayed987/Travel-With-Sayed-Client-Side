@@ -17,7 +17,7 @@ const ServiceDetails = () => {
         itinerary,
         price,
     } = service;
-    console.log(service);
+
     const handleReview = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -31,6 +31,7 @@ const ServiceDetails = () => {
             service: _id,
             serviceImg: img,
             serviceName: name,
+            packageName: packageName,
             price,
             email: user.email,
             reviewerName: user?.displayName ? user?.displayName : reviewerName,
