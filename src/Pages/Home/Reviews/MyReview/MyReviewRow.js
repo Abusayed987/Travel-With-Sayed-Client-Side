@@ -36,7 +36,7 @@ const MyReviewRow = ({ review }) => {
             <td className='text-sm '>
                 <div className='flex items-center'>
                     <img src={review?.reviewerPhoto}
-                        className='  w-7 '
+                        className='  w-10 rounded-full '
                         alt="ServiceImg" />
                     <span className='text-sm opacity-50 ml-2'>{reviewerName}</span>
                 </div>

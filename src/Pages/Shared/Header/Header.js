@@ -23,15 +23,15 @@ const Header = () => {
                             <li><Link to='/services'>Services</Link></li>
                             {user?.uid &&
                                 <>
-                                    <li><Link to='/'
+                                    <li><Link to='/myReview'
                                         className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
                                     >My Reviews</Link></li>
-                                    <li><Link
+                                    <li><Link to='/addService'
                                         className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
                                     >Add Service</Link></li>
                                 </>
                             }
-                            <li><Link to='/'>Blog</Link></li>
+                            <li><Link to='/blog'>Blog</Link></li>
                         </ul>
                     </div>
                     <Link to='/' className='flex items-center'>
@@ -58,12 +58,14 @@ const Header = () => {
                                 <li><Link to='/myReview'
                                     className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
                                 >My Reviews</Link></li>
-                                <li><Link
+                                <li><Link to='/addService'
                                     className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'
                                 >Add Service</Link></li>
                             </>
                         }
-                        <li><Link to='/' className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'>Blog</Link></li>
+                        <li>
+                            <Link to='/blog' className='hover:bg-cyan-700 hover:text-white hover:drop-shadow-2xl'>Blog</Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="navbar-end">

@@ -5,15 +5,18 @@ import AllReviewRow from './AllReviewRow';
 const AllReview = () => {
     const service = useLoaderData();
     const [allReviews, setAllReviews] = useState([])
+    const [refresh, setRefresh] = useState(false)
+
 
     useEffect(() => {
         fetch(`http://localhost:4000/allReviews?service=${service?._id}`)
             .then(res => res.json())
             .then(data => {
                 setAllReviews(data)
+                setRefresh(!refresh)
             })
             .catch(err => console.error(err))
-    }, [service?._id])
+    }, [service?._id, refresh])
 
     return (
         <div className='mb-32'>
