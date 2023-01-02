@@ -7,7 +7,7 @@ const AllReview = () => {
     const [allReviews, setAllReviews] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:4000/reviews?service=${service?._id}`)
+        fetch(`http://localhost:4000/allReviews?service=${service?._id}`)
             .then(res => res.json())
             .then(data => {
                 setAllReviews(data)
@@ -23,7 +23,7 @@ const AllReview = () => {
                         <tr>
                             <th>Review Items</th>
                             <th>Reviewer</th>
-                            <th>Experience</th>
+                            <th className='w-1/2'>Experience</th>
                         </tr>
                     </thead>
                     <tbody>

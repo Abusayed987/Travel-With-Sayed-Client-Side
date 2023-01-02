@@ -29,13 +29,13 @@ const AllReviewRow = ({ allReview }) => {
             <td className='text-sm '>
                 <div className='flex items-center'>
                     <img src={allReview?.reviewerPhoto}
-                        className='  w-7 '
+                        className=' w-7 '
                         alt="ServiceImg" />
                     <span className='text-sm opacity-50 ml-2'>{reviewerName}</span>
                 </div>
             </td>
-            <td className='text-sm chat chat-start'>
-                <div className="chat-bubble bg-cyan-800 text-lg text-white chat-bubble-secondary">{reviewerText}</div>
+            <td className='chat chat-start'>
+                <div className="chat-bubble bg-cyan-800 text-lg text-white chat-bubble-secondary ">{reviewerText}</div>
             </td>
         </tr>
     );
