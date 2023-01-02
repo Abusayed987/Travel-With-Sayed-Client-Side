@@ -1,6 +1,8 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
 
@@ -10,7 +12,6 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
-
     const {
         logInWithEmailAndPass,
         setLoading,
@@ -31,17 +32,19 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                toast.success('Successfully Login')
                 form.reset();
                 navigate(from, { replace: true })
             })
             .catch((e) => {
-                // toast.error(e.message)
+                toast.error(e.message)
                 console.error('error: ', e)
             })
             .finally(() => {
                 setLoading(false)
             })
     }
+
     const handleGoogleLogin = () => {
         googleLogin(googleProvider)
             .then(result => {

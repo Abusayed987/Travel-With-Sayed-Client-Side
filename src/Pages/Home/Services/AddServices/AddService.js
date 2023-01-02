@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AddService = () => {
+    const navigate = useNavigate();
     const handleAddService = e => {
         e.preventDefault()
         const form = e.target;
@@ -35,8 +38,8 @@ const AddService = () => {
                 console.log(data);
                 if (data.acknowledged) {
                     form.reset()
-                    // ai khane akta toast dite hobe 
-                    alert('Thank you for share your Experience')
+                    toast.success('Successfully Service Added!')
+                    navigate('/services')
                 }
             })
             .catch(err => console.error(err))

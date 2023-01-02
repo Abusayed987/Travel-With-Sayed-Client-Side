@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { FaCalendarDay, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import AllReview from '../Reviews/AllReview/AllReview';
 
@@ -51,8 +52,7 @@ const ServiceDetails = () => {
                 console.log(data);
                 if (data.acknowledged) {
                     form.reset()
-                    // ai khane akta toast dite hobe 
-                    alert('Thank you for share your Experience')
+                    toast.success('Successfully Review Added')
                 }
             })
             .catch(err => console.error(err))
