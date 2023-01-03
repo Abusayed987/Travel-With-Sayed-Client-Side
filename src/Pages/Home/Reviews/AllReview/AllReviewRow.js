@@ -36,7 +36,7 @@ const AllReviewRow = ({ allReview }) => {
                     <span className='text-sm opacity-50 ml-2'>{reviewerName}</span>
                 </div>
             </td>
-            <td className='chat chat-start'>
+            <td className=' chat-start'>
                 <div className="chat-bubble bg-cyan-800 text-lg text-white chat-bubble-secondary ">{reviewerText}</div>
             </td>
         </tr>
