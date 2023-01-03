@@ -36,12 +36,12 @@ const Header = () => {
                     </div>
                     <Link to='/' className='flex items-center'>
                         <img
-                            className='w-20 mx-2'
+                            className=' lg:w-20 md:w-20 w-12 mx-2'
                             src="https://media.tenor.com/n5i48L0PiyAAAAAi/airlines-travel.gif" alt=""
                         />
                         <span
-                            className="normal-case text-2xl text-cyan-800">
-                            <b className='text-3xl'>T</b>ravel With <b className='text-3xl'>S</b>ayed
+                            className="normal-case lg:text-2xl md:text-2xl text-lg  text-cyan-800">
+                            <b className=' lg:text-3xl md:text-3xl text-2xl'>T</b>ravel With <b className=' lg:text-3xl md:text-3xl text-2xl'>S</b>ayed
                         </span>
                     </Link>
                 </div>

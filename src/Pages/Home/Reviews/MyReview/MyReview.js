@@ -18,7 +18,7 @@ const MyReview = () => {
         })
             .then(res => {
                 if (res.status === 401 || res.status === 403) {
-                    logout()
+                    return logout()
                 }
                 return res.json()
             })
@@ -27,7 +27,7 @@ const MyReview = () => {
                 setReviews(data)
             })
             .catch(err => console.error(err))
-    }, [user?.email])
+    }, [user?.email, logout])
 
     const handleDelete = id => {
 

@@ -22,7 +22,7 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
     const logout = () => {
-        setLoading(true)
+        localStorage.removeItem('travelWithSayedToken')
         return signOut(auth)
     }
     useEffect(() => {
