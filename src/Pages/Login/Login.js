@@ -46,7 +46,6 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
                         localStorage.setItem('travelWithSayedToken', data.token)
                         navigate(from, { replace: true })
                     })
