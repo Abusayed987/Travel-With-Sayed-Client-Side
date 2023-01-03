@@ -1,20 +1,47 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
+import useTittle from '../../../../hooks/UseTittle';
 import MyReviewRow from './MyReviewRow';
 
 const MyReview = () => {
+    useTittle('MyReview')
     const { user } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
-    console.log();
+
+
     useEffect(() => {
         fetch(`http://localhost:4000/reviews?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
-                // console.log(data.length);
-                setReviews(data.review)
+                setReviews(data)
             })
             .catch(err => console.error(err))
     }, [user?.email])
+
+    const handleDelete = id => {
+
+        const proceed = window.confirm('Are You Sure That YOu Want to Delete Your Order')
+        if (proceed) {
+            fetch(`http://localhost:4000/reviews/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.deletedCount) {
+                        toast.success('Successfully Deleted Your Review')
+                        const remaining = reviews.filter(review => review._id !== id)
+                        setReviews(remaining)
+                    }
+                })
+                .catch(err => console.error(err))
+        }
+    }
+
+
+
+
+
     if (!reviews.length) {
         return (
             <div className=' min-h-screen mt-16'>
@@ -39,6 +66,7 @@ const MyReview = () => {
                                 <th>Review Items</th>
                                 <th>Reviewer</th>
                                 <th>Experience</th>
+                                <th>Edit Review</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,6 +75,7 @@ const MyReview = () => {
                                     <MyReviewRow
                                         key={review._id}
                                         review={review}
+                                        handleDelete={handleDelete}
                                     ></MyReviewRow>
                                 )
                             }

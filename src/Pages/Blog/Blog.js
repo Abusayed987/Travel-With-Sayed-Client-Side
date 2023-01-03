@@ -1,6 +1,8 @@
 import React from 'react';
+import useTittle from '../../hooks/UseTittle';
 
 const Blog = () => {
+    useTittle('Blog')
     return (
         <div className='my-8'>
             <div className='border p-5 mb-12 m-2'>

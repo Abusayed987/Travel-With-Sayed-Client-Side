@@ -1,8 +1,10 @@
-import { data } from 'autoprefixer';
 import React, { useEffect, useState } from 'react';
+import useTittle from '../../../hooks/UseTittle';
 import ServiceCard from './ServiceCard';
 const Services = () => {
+    useTittle('Services')
     const [services, setServices] = useState([])
+
     useEffect(() => {
         fetch('http://localhost:4000/services')
             .then(res => res.json())
@@ -11,6 +13,7 @@ const Services = () => {
                 setServices(data)
             })
     }, [])
+
     return (
         <div>
             <div className=' md:mt-20 lg:mt-20'>

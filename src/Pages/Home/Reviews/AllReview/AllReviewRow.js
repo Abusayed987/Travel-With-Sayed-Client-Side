@@ -31,7 +31,7 @@ const AllReviewRow = ({ allReview }) => {
             <td className='text-sm '>
                 <div className='flex items-center'>
                     <img src={allReview?.reviewerPhoto}
-                        className=' w-10 rounded-full'
+                        className=' w-10 h-10  rounded-full'
                         alt="ServiceImg" />
                     <span className='text-sm opacity-50 ml-2'>{reviewerName}</span>
                 </div>

@@ -1,12 +1,15 @@
 import React from 'react';
 import { FaCaretRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import useTittle from '../../../hooks/UseTittle';
 import About from '../About/About';
 import Banner from '../Banner/Banner';
 import ServicesForHome from '../Services/ServicesForHome';
 import WhatIdo from '../WhatIdo/WhatIdo';
 
 const Home = () => {
+    useTittle('Home')
+
 
     return (
         <div>

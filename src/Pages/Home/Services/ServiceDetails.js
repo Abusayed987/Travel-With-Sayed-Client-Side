@@ -3,9 +3,11 @@ import { FaCalendarDay, FaMapMarkerAlt } from 'react-icons/fa';
 import { Link, useLoaderData } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import useTittle from '../../../hooks/UseTittle';
 import AllReview from '../Reviews/AllReview/AllReview';
 
 const ServiceDetails = () => {
+    useTittle('ServiceDetails')
     const service = useLoaderData();
     const { user } = useContext(AuthContext)
     const {

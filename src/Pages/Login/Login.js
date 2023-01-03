@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTittle from '../../hooks/UseTittle';
 
 
 const googleProvider = new GoogleAuthProvider()
@@ -12,6 +13,8 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
+    useTittle('Login')
+
     const {
         logInWithEmailAndPass,
         setLoading,

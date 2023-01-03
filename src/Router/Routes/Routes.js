@@ -3,11 +3,13 @@ import Main from "../../Lauout/Main";
 import Blog from "../../Pages/Blog/Blog";
 import Home from "../../Pages/Home/Home/Home";
 import AllReview from "../../Pages/Home/Reviews/AllReview/AllReview";
+import EditReview from "../../Pages/Home/Reviews/EditReview/EditReview";
 import MyReview from "../../Pages/Home/Reviews/MyReview/MyReview";
 import AddService from "../../Pages/Home/Services/AddServices/AddService";
 import ServiceDetails from "../../Pages/Home/Services/ServiceDetails";
 import Services from "../../Pages/Home/Services/Services";
 import Login from "../../Pages/Login/Login";
+import NotFound from "../../Pages/NotFound/NotFound";
 import Signup from "../../Pages/Signup/Signup";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -44,6 +46,13 @@ const router = createBrowserRouter([
                 </PrivateRoute>,
             },
             {
+                path: '/myReview/edit/:myReviewId',
+                element: <PrivateRoute>
+                    <EditReview></EditReview>
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:4000/reviews/${params.myReviewId}`)
+            },
+            {
                 path: '/addService',
                 element: <PrivateRoute>
                     <AddService></AddService>
@@ -54,6 +63,10 @@ const router = createBrowserRouter([
                 element: <Blog></Blog>
             },
         ]
+    },
+    {
+        path: '*',
+        element: <NotFound></NotFound>
     }
 ])
 export default router
