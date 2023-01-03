@@ -12,7 +12,7 @@ const MyReview = () => {
 
     //for get dynamic review
     useEffect(() => {
-        fetch(`http://localhost:4000/reviews?email=${user?.email}`, {
+        fetch(`https://travel-with-sayed-server.vercel.app/reviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('travelWithSayedToken')}`
             }
@@ -34,7 +34,7 @@ const MyReview = () => {
         const proceed = window.confirm('Are You Sure That YOu Want to Delete Your Order')
 
         if (proceed) {
-            fetch(`http://localhost:4000/reviews/${id}`, {
+            fetch(`https://travel-with-sayed-server.vercel.app/reviews/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())

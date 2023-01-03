@@ -28,7 +28,7 @@ const AddService = () => {
             itinerary: itinerary,
         }
 
-        fetch('http://localhost:4000/services', {
+        fetch('https://travel-with-sayed-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

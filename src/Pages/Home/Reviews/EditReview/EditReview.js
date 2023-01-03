@@ -28,7 +28,7 @@ const EditReview = () => {
         navigate('/myReview')
 
 
-        // fetch(`http://localhost:4000/reviews/${currentReview._id}`, {
+        // fetch(`https://travel-with-sayed-server.vercel.app/reviews/${currentReview._id}`, {
         //     method: 'PUT',
         //     headers: {
         //         'content-type': 'application/json'

@@ -3,7 +3,7 @@ import ServiceCard from './ServiceCard';
 const ServicesForHome = () => {
     const [servicesForHome, setServicesForHome] = useState([])
     useEffect(() => {
-        fetch('http://localhost:4000/servicesForHome')
+        fetch('https://travel-with-sayed-server.vercel.app/servicesForHome')
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

@@ -37,7 +37,7 @@ const Login = () => {
                 }
 
                 //get jwt token
-                fetch('http://localhost:4000/jwt', {
+                fetch('https://travel-with-sayed-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -69,7 +69,7 @@ const Login = () => {
                 const currentUser = {
                     email: user.email
                 }
-                fetch('http://localhost:4000/jwt', {
+                fetch('https://travel-with-sayed-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
