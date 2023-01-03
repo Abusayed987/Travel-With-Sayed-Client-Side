@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import useTittle from '../../hooks/UseTittle';
 
 
 const Signup = () => {
     const { createUser } = useContext(AuthContext);
-
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
     useTittle('Sign Up')
 
     const handleSignup = e => {
@@ -18,14 +21,15 @@ const Signup = () => {
         const confirmPass = form.confirmPass.value;
         console.log(name, email, password, confirmPass);
         if (password !== confirmPass) {
-            return alert('password did not match')
+            return toast.error('Password did not match')
         }
 
         createUser(email, password)
             .then(result => {
                 const user = result.user
-                // form.reset()
-                console.log(user);
+                toast.success('Successfully SignUp')
+                form.reset();
+                navigate(from, { replace: true })
             })
             .catch(err => {
                 const errorMessage = err.message;

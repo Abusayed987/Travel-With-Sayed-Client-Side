@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { json, Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
@@ -28,16 +28,30 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
-
 
         logInWithEmailAndPass(email, password)
             .then((result) => {
                 const user = result.user;
-                console.log(user);
+                const currentUser = {
+                    email: user.email
+                }
+
+                //get jwt token
+                fetch('http://localhost:4000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+
                 toast.success('Successfully Login')
-                form.reset();
-                navigate(from, { replace: true })
+                // form.reset();
+                // navigate(from, { replace: true })
             })
             .catch((e) => {
                 toast.error(e.message)
