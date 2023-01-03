@@ -10,6 +10,7 @@ const MyReview = () => {
     const [reviews, setReviews] = useState([])
 
 
+    //for get dynamic review
     useEffect(() => {
         fetch(`http://localhost:4000/reviews?email=${user?.email}`, {
             headers: {
