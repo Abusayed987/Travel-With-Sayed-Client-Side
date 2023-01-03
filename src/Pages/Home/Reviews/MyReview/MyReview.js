@@ -6,7 +6,7 @@ import MyReviewRow from './MyReviewRow';
 
 const MyReview = () => {
     useTittle('MyReview')
-    const { user } = useContext(AuthContext)
+    const { user, logout } = useContext(AuthContext)
     const [reviews, setReviews] = useState([])
 
 
@@ -16,8 +16,14 @@ const MyReview = () => {
                 authorization: `Bearer ${localStorage.getItem('travelWithSayedToken')}`
             }
         })
-            .then(res => res.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    logout()
+                }
+                return res.json()
+            })
             .then(data => {
+
                 setReviews(data)
             })
             .catch(err => console.error(err))
