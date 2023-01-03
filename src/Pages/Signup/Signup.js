@@ -19,7 +19,7 @@ const Signup = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirmPass = form.confirmPass.value;
-        console.log(name, email, password, confirmPass);
+
         if (password !== confirmPass) {
             return toast.error('Password did not match')
         }

@@ -30,8 +30,8 @@ const MyReview = () => {
     }, [user?.email, logout])
 
     const handleDelete = id => {
-
         const proceed = window.confirm('Are You Sure That YOu Want to Delete Your Order')
+
         if (proceed) {
             fetch(`http://localhost:4000/reviews/${id}`, {
                 method: 'DELETE'
@@ -47,10 +47,6 @@ const MyReview = () => {
                 .catch(err => console.error(err))
         }
     }
-
-
-
-
 
     if (!reviews.length) {
         return (
